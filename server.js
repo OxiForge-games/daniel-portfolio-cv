@@ -170,11 +170,15 @@ app.get('*', (req, res) => {
 });
 
 // Inicio del servidor
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`Landing Page CV de Daniel Cernicharo Toledo`);
-  console.log(`Servidor activo en: http://localhost:${PORT}`);
-  console.log(`Dominio objetivo: ${profileData.domain || 'danieldev.space'}`);
-  console.log(`Estado: Open to Work (Frontend, Backend, Mobile, Web)`);
-  console.log(`====================================================`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`Landing Page CV de Daniel Cernicharo Toledo`);
+    console.log(`Servidor activo en: http://localhost:${PORT}`);
+    console.log(`Dominio objetivo: ${profileData.domain || 'danieldev.space'}`);
+    console.log(`Estado: Open to Work (Frontend, Backend, Mobile, Web)`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
