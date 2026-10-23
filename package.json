@@ -1,0 +1,26 @@
+{
+  "name": "daniel-portfolio-cv",
+  "version": "1.0.0",
+  "description": "Landing page y curriculum web interactivo de Daniel Cernicharo Toledo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "curriculum",
+    "cv",
+    "developer",
+    "daw",
+    "smr",
+    "nodejs",
+    "express"
+  ],
+  "author": "Daniel Cernicharo Toledo",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^4.21.2"
+  }
+}

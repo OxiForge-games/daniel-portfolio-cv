@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Cernicharo Toledo | Desarrollador Web & Multiplataforma</title>
+  <meta name="description" content="Curriculum web y portafolio interactivo de Daniel Cernicharo Toledo. Técnico en DAW y SMR, cursando especialización en Inteligencia Artificial y Ciberseguridad. Albacete, España.">
+  <meta name="keywords" content="Daniel Cernicharo Toledo, Desarrollador Web, DAW, SMR, React, Node.js, Java, PHP, Flutter, Unity, Ciberseguridad, Albacete">
+  <meta name="author" content="Daniel Cernicharo Toledo">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daniel Cernicharo Toledo | Desarrollador Web & Multiplataforma">
+  <meta property="og:description" content="Portfolio & Curriculum Web interactivo. DAW + SMR + Especialización en IA y Ciberseguridad.">
+  <meta property="og:url" content="https://danieldev.space">
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Elemento de iluminación reactiva al cursor -->
+  <div id="cursorSpotlight" class="cursor-spotlight print-hide" aria-hidden="true"></div>
+
+  <!-- Luces ambientales de fondo -->
+  <div class="ambient-glow ambient-1 print-hide" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-2 print-hide" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-3 print-hide" aria-hidden="true"></div>
+
+  <!-- Barra de Navegación -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">Daniel Cernicharo</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="#habilidades" class="nav-link">Aptitudes</a>
+        <a href="#educacion" class="nav-link">Formación</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn-icon" aria-label="Cambiar tema">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button onclick="window.print()" class="btn btn-outline btn-sm print-hide">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Imprimir CV</span>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-toggle print-hide" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION CON CANVAS INTERACTIVO -->
+    <section class="hero" id="hero">
+      <canvas id="heroCanvas" class="hero-canvas print-hide"></canvas>
+
+      <div class="container hero-grid">
+        <div class="hero-text reveal-up">
+          <div class="hero-badges">
+            <span class="badge badge-opentowork">
+              <span class="pulsing-dot"></span> #OpenToWork
+            </span>
+            <span class="badge badge-location">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Albacete, España</span>
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Daniel Cernicharo Toledo
+          </h1>
+
+          <!-- Typewriter de roles técnicos -->
+          <div class="typewriter-container">
+            <h2 class="hero-subtitle">
+              <span id="typewriterText" class="text-gradient">Desarrollador Web & Multiplataforma</span>
+              <span class="typewriter-cursor">|</span>
+            </h2>
+          </div>
+          
+          <p class="hero-description">
+            Especializado en interfaces reactivas con <strong>React.js</strong> y <strong>TypeScript</strong>, servicios backend en <strong>Node.js, Java y PHP</strong>, desarrollo móvil con <strong>Flutter</strong> y entornos interactivos con <strong>Unity</strong>. Respaldado por una sólida base en <strong>redes, sistemas y ciberseguridad</strong>.
+          </p>
+
+          <div class="hero-cta print-hide">
+            <a href="#contacto" class="btn btn-primary magnetic-btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Contactar</span>
+            </a>
+            <a href="https://www.linkedin.com/in/daniel-cernicharo-toledo-467a8a313/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#proyectos" class="btn btn-outline magnetic-btn">
+              <span>Ver Proyectos</span>
+            </a>
+          </div>
+
+          <!-- Contadores animados -->
+          <div class="quick-highlights">
+            <div class="quick-item">
+              <span class="quick-number" data-target="3" data-suffix="">0</span>
+              <span class="quick-label">Titulaciones & Especializaciones</span>
+            </div>
+            <div class="quick-divider"></div>
+            <div class="quick-item">
+              <span class="quick-number" data-target="8" data-suffix="+">0</span>
+              <span class="quick-label">Tecnologías Clave</span>
+            </div>
+            <div class="quick-divider"></div>
+            <div class="quick-item">
+              <span class="quick-number" data-target="100" data-suffix="%">0</span>
+              <span class="quick-label">Compromiso y Seguridad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-scale">
+          <!-- Tarjeta 3D interactiva -->
+          <div class="profile-card-glass tilt-card" id="heroTiltCard">
+            <div class="card-border-beam"></div>
+            <div class="card-glow-layer"></div>
+            
+            <div class="avatar-wrapper">
+              <div class="avatar-placeholder">
+                <span>DC</span>
+              </div>
+              <div class="avatar-ring-opentowork" title="#OpenToWork Activo"></div>
+            </div>
+            <h3 class="card-name">Daniel Cernicharo</h3>
+            <p class="card-role">Desarrollador Web & Multiplataforma</p>
+            <div class="card-tags">
+              <span class="card-tag">Frontend</span>
+              <span class="card-tag">Backend</span>
+              <span class="card-tag">Mobile</span>
+              <span class="card-tag">Sistemas</span>
+            </div>
+            <div class="card-footer">
+              <div class="status-indicator">
+                <span class="dot-green"></span>
+                <span>Disponible para contratación</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ SECTION -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Perfil Profesional</span>
+          <h2 class="section-title">Sobre Mí & Propuesta de Valor</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card main-about reveal-left">
+            <p class="lead-text">
+              Soy <strong>Daniel Cernicharo Toledo</strong>, desarrollador de software y técnico informático con base técnica dual en desarrollo de aplicaciones y en infraestructuras de sistemas y redes.
+            </p>
+            <p>
+              Mi formación académica combina el <strong>Grado Superior en Desarrollo de Aplicaciones Web (DAW)</strong> por el IES Amparo Sanz y el <strong>Grado Medio en Sistemas Microinformáticos y Redes (SMR)</strong> por el IES Leonardo da Vinci. Esta combinación me permite diseñar e implementar software no solo pensando en el código y la interfaz, sino también en cómo se despliega, cómo se comunica por red y cómo se protege frente a vulnerabilidades.
+            </p>
+            <p>
+              Actualmente me encuentro cursando la especialización de 420 horas en <strong>Inteligencia Artificial y Ciberseguridad aplicada mediante entornos gamificados</strong>, promovida por <em>Unitel Formación</em> en colaboración con <em>Grupo Tecon</em> e <em>Itecam</em>, profundizando en ciberdefensa corporativa y automatización con IA.
+            </p>
+          </div>
+
+          <div class="about-features reveal-right">
+            <div class="feature-box tilt-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h4>Desarrollo Web & APIs</h4>
+              <p>Interfaces dinámicas y modulares con React.js, TypeScript y JavaScript moderno; APIs REST eficientes y seguras con Node.js, Java y PHP respaldadas por bases de datos SQL.</p>
+            </div>
+
+            <div class="feature-box tilt-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </div>
+              <h4>Móvil & Experiencias Interactivas</h4>
+              <p>Aplicaciones multiplataforma fluidas creadas en Flutter con Android Studio, además de prototipos y lógica interactiva en Unity utilizando scripting en C#.</p>
+            </div>
+
+            <div class="feature-box tilt-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h4>Infraestructura & Ciberseguridad</h4>
+              <p>Configuración de redes locales (TCP/IP, enrutamiento, servicios de red), administración de servidores Windows/Linux y análisis de seguridad aplicada a entornos reales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES & STACK SECTION -->
+    <section class="section bg-alt" id="habilidades">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Competencias</span>
+          <h2 class="section-title">Stack Tecnológico & Aptitudes</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Filtros interactivos -->
+        <div class="filter-tabs print-hide reveal-up" id="skillFilters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="web">Desarrollo Web</button>
+          <button class="filter-btn" data-filter="backend">Backend & Lenguajes</button>
+          <button class="filter-btn" data-filter="mobile">Móvil & Videojuegos</button>
+          <button class="filter-btn" data-filter="security">Sistemas & Ciberseguridad</button>
+        </div>
+
+        <div class="skills-grid reveal-stagger" id="skillsContainer">
+          <!-- Generado dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN Y TRAYECTORIA SECTION -->
+    <section class="section" id="educacion">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Educación Oficial</span>
+          <h2 class="section-title">Formación Académica & Especializaciones</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline" id="educationTimeline">
+          <!-- Item 1: Especialización IA y Ciberseguridad -->
+          <div class="timeline-item reveal-up">
+            <div class="timeline-dot pulsing-border"></div>
+            <div class="timeline-content card-highlight tilt-card">
+              <div class="card-border-beam"></div>
+              <div class="timeline-header">
+                <div>
+                  <span class="badge badge-status">
+                    <span class="badge-dot-live"></span>
+                    Actualmente cursando (2026 – Presente)
+                  </span>
+                  <h3 class="timeline-title">Inteligencia Artificial y Ciberseguridad aplicada mediante entornos gamificados</h3>
+                  <h4 class="timeline-subtitle">Unitel Formación · En colaboración con Grupo Tecon e Itecam</h4>
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Programa de especialización práctica de 420 horas orientado a la ciberdefensa en entornos simulados, análisis de vulnerabilidades en sistemas empresariales y aplicación de soluciones prácticas con Inteligencia Artificial generativa y automatización.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Ciberseguridad</span>
+                <span class="tag">Inteligencia Artificial</span>
+                <span class="tag">Entornos Gamificados</span>
+                <span class="tag">Hardening</span>
+              </div>
+              <div class="timeline-links print-hide">
+                <a href="https://grupotecon.com" target="_blank" rel="noopener" class="link-chip">
+                  <span>Grupo Tecon</span>
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://unitelformacion.es" target="_blank" rel="noopener" class="link-chip">
+                  <span>Unitel Formación</span>
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                <a href="https://itecam.com" target="_blank" rel="noopener" class="link-chip">
+                  <span>Itecam</span>
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: DAW -->
+          <div class="timeline-item reveal-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="badge badge-success">Graduado Oficial</span>
+                  <h3 class="timeline-title">Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web (DAW)</h3>
+                  <h4 class="timeline-subtitle">IES Amparo Sanz (Albacete)</h4>
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Formación técnica centrada en el desarrollo integral de aplicaciones web: frontend reactivo con JavaScript, TypeScript y React.js; desarrollo backend con Node.js, PHP y Java; diseño, normalización y consultas optimizadas en bases de datos relacionales SQL; integración de APIs REST y estándares web HTML5/CSS3.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Java</span>
+                <span class="tag">PHP</span>
+                <span class="tag">SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: SMR -->
+          <div class="timeline-item reveal-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content tilt-card">
+              <div class="timeline-header">
+                <div>
+                  <span class="badge badge-success">Graduado Oficial</span>
+                  <h3 class="timeline-title">Ciclo Formativo de Grado Medio en Sistemas Microinformáticos y Redes (SMR)</h3>
+                  <h4 class="timeline-subtitle">IES Leonardo da Vinci (Albacete)</h4>
+                </div>
+              </div>
+              <p class="timeline-desc">
+                Formación en instalación, configuración y mantenimiento de sistemas operativos (Windows / Linux), infraestructura y cableado de redes locales de datos (TCP/IP, DHCP, DNS), administración de servicios y seguridad informática perimetral.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Redes Informáticas</span>
+                <span class="tag">Sistemas Operativos</span>
+                <span class="tag">Seguridad Básica</span>
+                <span class="tag">Servicios de Red</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS / SHOWCASE SECTION -->
+    <section class="section bg-alt" id="proyectos">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Portafolio</span>
+          <h2 class="section-title">Proyectos & Demostraciones Técnicas</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid reveal-stagger" id="projectsContainer">
+          <!-- Renderizado dinámico -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Conectemos</span>
+          <h2 class="section-title">Información de Contacto & Disponibilidad</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card reveal-left">
+            <h3>¿Hablamos sobre una oportunidad?</h3>
+            <p>
+              Actualmente estoy en búsqueda activa de empleo como <strong>Desarrollador Web (Frontend / Backend)</strong> o <strong>Desarrollador Multiplataforma / Mobile</strong>. Si tienes una vacante o proyecto en el que encaje mi perfil, estaré encantado de conversar contigo.
+            </p>
+
+            <div class="contact-links-list">
+              <a href="https://www.linkedin.com/in/daniel-cernicharo-toledo-467a8a313/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon linkedin-bg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-val">in/daniel-cernicharo-toledo-467a8a313</span>
+                </div>
+              </a>
+
+              <div class="contact-item copyable" id="copyEmailBtn" data-email="contacto@danieldev.space">
+                <div class="contact-icon email-bg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-val">contacto@danieldev.space</span>
+                </div>
+                <span class="copy-badge">Copiar</span>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon location-bg">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="contact-text">
+                  <span class="contact-label">Ubicación</span>
+                  <span class="contact-val">Albacete, Castilla-La Mancha (España)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario interactivo conectado a la API de Node.js -->
+          <div class="contact-form-card print-hide reveal-right">
+            <h3>Enviar un mensaje directo</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Tu Nombre *</label>
+                <input type="text" id="name" name="name" required placeholder="Ej: María Gómez">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Tu Correo Electrónico *</label>
+                <input type="email" id="email" name="email" required placeholder="ejemplo@empresa.com">
+              </div>
+
+              <div class="form-group">
+                <label for="role">Tipo de contacto / Puesto</label>
+                <select id="role" name="role">
+                  <option value="Recruiter / Selección IT">Recruiter / Selección IT</option>
+                  <option value="Desarrollador / Empresa">Propuesta laboral / Empresa</option>
+                  <option value="Colaboración Técnica">Colaboración / Proyecto</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Mensaje *</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Hola Daniel, he visto tu perfil y me gustaría proponerte..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block magnetic-btn" id="submitBtn">
+                <span>Enviar Mensaje</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+              
+              <div id="formFeedback" class="form-feedback"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal interactivo para Demostración Jugable de Black Messenger -->
+  <div id="gameModal" class="game-modal-backdrop print-hide" aria-hidden="true">
+    <div class="game-modal-container">
+      <div class="game-modal-header">
+        <div class="game-modal-title-wrap">
+          <h3 class="game-modal-title">Black Messenger</h3>
+        </div>
+        <div class="game-modal-actions">
+          <a href="/games/black-messenger/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" title="Abrir en pantalla completa">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Pantalla Completa</span>
+          </a>
+          <button id="closeGameModal" class="btn-icon" aria-label="Cerrar juego">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="phone-frame-wrapper">
+        <div class="phone-bezel">
+          <div class="phone-notch">
+            <div class="phone-camera"></div>
+            <div class="phone-speaker"></div>
+          </div>
+          <iframe id="gameIframe" class="phone-screen" src="" title="Black Messenger Demo"></iframe>
+        </div>
+      </div>
+
+      <div class="game-modal-footer">
+        <p>Juego de suspense y simulación de smartphone desarrollado por <strong>Daniel Cernicharo Toledo</strong> en <strong>Flutter & Dart</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer print-hide">
+    <div class="container footer-content">
+      <p>© 2026 Daniel Cernicharo Toledo · Desarrollado con Node.js & Express</p>
+      <p class="footer-sub">Optimizado para despliegue en <code>danieldev.space</code></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

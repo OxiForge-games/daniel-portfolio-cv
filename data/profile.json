@@ -1,0 +1,132 @@
+{
+  "name": "Daniel Cernicharo Toledo",
+  "title": "Desarrollador Web & Multiplataforma | DAW & SMR",
+  "tagline": "Especialista en desarrollo web, aplicaciones multiplataforma y ciberseguridad con sólida base en redes e infraestructuras de sistemas.",
+  "location": "Albacete, Castilla-La Mancha, España",
+  "domain": "danieldev.space",
+  "openToWork": {
+    "status": true,
+    "roles": [
+      "Frontend Developer",
+      "Back End Developer",
+      "Mobile Application Developer",
+      "Web Developer"
+    ],
+    "modalities": ["Presencial (Albacete)", "Híbrido", "Remoto"]
+  },
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/daniel-cernicharo-toledo-467a8a313/",
+    "github": "https://github.com",
+    "email": "contacto@danieldev.space"
+  },
+  "about": {
+    "summary": "Desarrollador de software y técnico informático enfocado en desarrollo web frontend y backend, aplicaciones multiplataforma y ciberseguridad.",
+    "description": "Cuento con doble titulación técnica oficial: Técnico Superior en Desarrollo de Aplicaciones Web (DAW) por el IES Amparo Sanz y Técnico en Sistemas Microinformáticos y Redes (SMR) por el IES Leonardo da Vinci. Actualmente continúo ampliando mis competencias cursando la especialización en Inteligencia Artificial y Ciberseguridad aplicada mediante entornos gamificados (Unitel Formación en colaboración con Grupo Tecon e Itecam).\n\nMi formación dual me permite abarcar tanto la lógica de programación y la experiencia de usuario como la arquitectura del servidor, configuración de redes, entornos de despliegue y seguridad del software.",
+    "highlights": [
+      { "number": "3", "label": "Titulaciones & Especializaciones" },
+      { "number": "8+", "label": "Tecnologías & Lenguajes Clave" },
+      { "number": "100%", "label": "Orientación a Calidad y Seguridad" }
+    ]
+  },
+  "education": [
+    {
+      "id": "ciber-ia",
+      "institution": "Unitel Formación",
+      "collaboration": "En colaboración con Grupo Tecon e Itecam",
+      "degree": "Especialización (En curso)",
+      "field": "Inteligencia Artificial y Ciberseguridad aplicada mediante entornos gamificados",
+      "period": "2026 – Presente",
+      "status": "Actualmente cursando",
+      "description": "Programa de 420 horas de especialización práctica en ciberdefensa de infraestructuras, análisis de vectores de ataque y vulnerabilidades, y diseño de soluciones con Inteligencia Artificial generativa y automatización.",
+      "skills": ["Ciberseguridad", "Inteligencia Artificial", "Análisis de Vulnerabilidades", "Entornos Gamificados"],
+      "links": [
+        { "name": "Grupo Tecon", "url": "https://grupotecon.com" },
+        { "name": "Unitel Formación", "url": "https://unitelformacion.es" },
+        { "name": "Itecam", "url": "https://itecam.com" }
+      ]
+    },
+    {
+      "id": "daw",
+      "institution": "IES Amparo Sanz (Albacete)",
+      "degree": "Ciclo Formativo de Grado Superior",
+      "field": "Desarrollo de Aplicaciones Web (DAW)",
+      "period": "Formación Oficial FP",
+      "status": "Completado",
+      "description": "Especialización en desarrollo web full-lifecycle: interfaces dinámicas con JavaScript, TypeScript y React.js; desarrollo backend y APIs REST con Node.js, Java y PHP; modelado y optimización de bases de datos relacionales en SQL; maquetación responsive con HTML5 y CSS3.",
+      "skills": ["React.js", "Node.js", "Java", "PHP", "JavaScript", "TypeScript", "SQL", "HTML5/CSS3"]
+    },
+    {
+      "id": "smr",
+      "institution": "IES Leonardo da Vinci (Albacete)",
+      "degree": "Ciclo Formativo de Grado Medio",
+      "field": "Sistemas Microinformáticos y Redes (SMR)",
+      "period": "Formación Oficial FP",
+      "status": "Completado",
+      "description": "Formación en instalación, configuración y mantenimiento de sistemas operativos (Windows/Linux), cableado y arquitectura de redes de datos (TCP/IP, DHCP, DNS), administración de servidores locales y seguridad informática perimetral.",
+      "skills": ["Redes de Datos", "Sistemas Operativos", "Seguridad Informática", "Montaje y Mantenimiento", "Servicios en Red"]
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript (ES6+)", "category": "web", "level": "Intermedio", "badge": "Lenguaje Web" },
+    { "name": "TypeScript", "category": "web", "level": "Intermedio", "badge": "Tipado Estático" },
+    { "name": "React.js", "category": "web", "level": "Intermedio", "badge": "Frontend SPA" },
+    { "name": "HTML5 & CSS3", "category": "web", "level": "Intermedio", "badge": "Maquetación & Flex/Grid" },
+    { "name": "Node.js & Express", "category": "backend", "level": "Intermedio", "badge": "Backend & APIs" },
+    { "name": "Java", "category": "backend", "level": "Intermedio", "badge": "POO & Servicios" },
+    { "name": "PHP", "category": "backend", "level": "Intermedio", "badge": "Backend Web" },
+    { "name": "SQL (MySQL / MariaDB)", "category": "backend", "level": "Intermedio", "badge": "Bases de Datos" },
+    { "name": "Flutter & Dart", "category": "mobile", "level": "Avanzado", "badge": "Multiplataforma Móvil" },
+    { "name": "Android Studio", "category": "mobile", "level": "Intermedio", "badge": "Entorno Móvil" },
+    { "name": "Unity & C#", "category": "mobile", "level": "Avanzado", "badge": "Interactivos & 3D/2D" },
+    { "name": "Ciberseguridad Práctica", "category": "security", "level": "En Especialización", "badge": "Defensa & Hardening" },
+    { "name": "Inteligencia Artificial Aplicada", "category": "security", "level": "En Especialización", "badge": "IA & Automatización" },
+    { "name": "Redes & Infraestructura (SMR)", "category": "security", "level": "Intermedio", "badge": "TCP/IP, Routers, Servidores" },
+    { "name": "Git & GitHub", "category": "tools", "level": "Bajo-Intermedio", "badge": "Control de Versiones" }
+  ],
+  "projects": [
+    {
+      "title": "Black Messenger - Juego & Simulador OS",
+      "category": "mobile",
+      "description": "Videojuego interactivo de suspense y terror psicológico desarrollado en Flutter y Dart. Emula un smartphone completo (mensajería, notas, galería, llamadas, mapas e IA conversacional). Incluye compilación web ejecutable directamente desde el navegador.",
+      "tags": ["Flutter", "Dart", "Android Studio", "Simulador OS", "Game Design", "Demo Web"],
+      "icon": "gamepad",
+      "demoUrl": "/games/black-messenger/",
+      "featured": true
+    },
+    {
+      "title": "Portal de Gestión Web React & Node",
+      "category": "web",
+      "description": "Aplicación web orientada a la gestión de datos empresariales con autenticación JWT, frontend modular con React.js y API REST en Node.js conectada a base de datos relacional SQL.",
+      "tags": ["React.js", "Node.js", "Express", "SQL", "REST API"],
+      "icon": "globe"
+    },
+    {
+      "title": "App Multiplataforma con Flutter",
+      "category": "mobile",
+      "description": "Aplicación para dispositivos móviles diseñada en Flutter y Android Studio con arquitectura limpia, gestión reactiva de estado y consumo de servicios asíncronos.",
+      "tags": ["Flutter", "Dart", "Android Studio", "Mobile UI"],
+      "icon": "smartphone"
+    },
+    {
+      "title": "Experiencia Interactiva en Unity",
+      "category": "mobile",
+      "description": "Prototipo interactivo desarrollado sobre Unity utilizando scripting en C#, físicas en tiempo real, interfaz responsiva y optimización de recursos gráficos.",
+      "tags": ["Unity", "C#", "Interactive", "Game Engine"],
+      "icon": "gamepad"
+    },
+    {
+      "title": "Laboratorio de Infraestructura y Redes Seguras",
+      "category": "security",
+      "description": "Despliegue y configuración de red local virtualizada con segmentación de VLANs, cortafuegos perimetral, políticas de acceso y auditoría de servicios según la base técnica de SMR y Ciberseguridad.",
+      "tags": ["SMR", "Redes TCP/IP", "Ciberseguridad", "Linux/Windows Server"],
+      "icon": "shield"
+    },
+    {
+      "title": "Simulador Gamificado de Ciberdefensa & IA",
+      "category": "security",
+      "description": "Entorno práctico para análisis de vectores de ataque y detección de anomalías en redes corporativas, combinando modelos de asistencia por IA y endurecimiento de sistemas.",
+      "tags": ["IA Aplicada", "Ciberseguridad", "Hardening", "Automatización", "Entornos Gamificados"],
+      "icon": "shield"
+    }
+  ]
+}
