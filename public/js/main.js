@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailCopy();
   initScrollSpy();
   initGameModal();
+  initDanibot();
 });
 
 /* ========================================================
@@ -777,4 +778,263 @@ function initScrollSpy() {
       }
     });
   }, { passive: true });
+}
+
+/* ========================================================
+   17. ASISTENTE VIRTUAL IA DEL PORTFOLIO (DANIBOT)
+======================================================== */
+function initDanibot() {
+  const widget = document.getElementById('danibotWidget');
+  const toggleBtn = document.getElementById('danibotToggleBtn');
+  const windowEl = document.getElementById('danibotWindow');
+  const closeBtn = document.getElementById('danibotCloseBtn');
+  const resetBtn = document.getElementById('danibotResetBtn');
+  const form = document.getElementById('danibotForm');
+  const input = document.getElementById('danibotInput');
+  const sendBtn = document.getElementById('danibotSendBtn');
+  const messagesEl = document.getElementById('danibotMessages');
+  const suggestionsEl = document.getElementById('danibotSuggestions');
+  const tooltipEl = document.getElementById('danibotTooltip');
+  const closeTooltipBtn = document.getElementById('closeDanibotTooltip');
+
+  if (!widget || !toggleBtn || !form || !input || !messagesEl) return;
+
+  let chatHistory = [];
+  let isWaiting = false;
+
+  // Tooltip dismiss
+  if (closeTooltipBtn && tooltipEl) {
+    if (sessionStorage.getItem('danibot_tooltip_closed') === 'true') {
+      tooltipEl.style.display = 'none';
+    }
+    closeTooltipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tooltipEl.style.display = 'none';
+      sessionStorage.setItem('danibot_tooltip_closed', 'true');
+    });
+  }
+
+  // Toggle apertura / cierre
+  function toggleChat(forceOpen) {
+    const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !widget.classList.contains('is-open');
+    if (shouldOpen) {
+      widget.classList.add('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      windowEl.setAttribute('aria-hidden', 'false');
+      if (tooltipEl) tooltipEl.style.display = 'none';
+      if (window.innerWidth > 640) {
+        setTimeout(() => input.focus(), 150);
+      }
+      scrollToBottom();
+    } else {
+      widget.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      windowEl.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  toggleBtn.addEventListener('click', () => toggleChat());
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => toggleChat(false));
+  }
+
+  // Escuchar tecla Escape para cerrar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && widget.classList.contains('is-open')) {
+      toggleChat(false);
+    }
+  });
+
+  // Habilitar / deshabilitar botón enviar según texto
+  input.addEventListener('input', () => {
+    sendBtn.disabled = !input.value.trim() || isWaiting;
+  });
+
+  // Scroll al final
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  // Formato de hora
+  function getTimeString() {
+    const now = new Date();
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  // Formateador Markdown seguro para las respuestas del bot
+  function formatBotMarkdown(text) {
+    if (!text) return '';
+    let safe = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
+    safe = safe.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+
+    const lines = safe.split('\n');
+    let inList = false;
+    let formatted = '';
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line.startsWith('* ') || line.startsWith('- ')) {
+        if (!inList) {
+          formatted += '<ul>';
+          inList = true;
+        }
+        formatted += `<li>${line.substring(2)}</li>`;
+      } else {
+        if (inList) {
+          formatted += '</ul>';
+          inList = false;
+        }
+        if (line) {
+          formatted += `<p>${line}</p>`;
+        }
+      }
+    }
+    if (inList) formatted += '</ul>';
+
+    return formatted || safe;
+  }
+
+  // Añadir mensaje a la interfaz
+  function appendMessage(sender, text, isHtml = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `danibot-msg danibot-msg-${sender}`;
+
+    const bubbleDiv = document.createElement('div');
+    bubbleDiv.className = 'danibot-msg-bubble';
+
+    if (isHtml) {
+      bubbleDiv.innerHTML = text;
+    } else {
+      bubbleDiv.textContent = text;
+    }
+
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 'danibot-msg-time';
+    timeSpan.textContent = getTimeString();
+
+    msgDiv.appendChild(bubbleDiv);
+    msgDiv.appendChild(timeSpan);
+    messagesEl.appendChild(msgDiv);
+    scrollToBottom();
+    return msgDiv;
+  }
+
+  // Indicador de escritura
+  function showTyping() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'danibot-msg danibot-msg-bot danibot-typing-msg';
+
+    const bubbleDiv = document.createElement('div');
+    bubbleDiv.className = 'danibot-msg-bubble danibot-typing-bubble';
+    bubbleDiv.innerHTML = '<span class="danibot-dot"></span><span class="danibot-dot"></span><span class="danibot-dot"></span>';
+
+    typingDiv.appendChild(bubbleDiv);
+    messagesEl.appendChild(typingDiv);
+    scrollToBottom();
+
+    return {
+      remove: () => {
+        if (typingDiv && typingDiv.parentNode) {
+          typingDiv.parentNode.removeChild(typingDiv);
+        }
+      }
+    };
+  }
+
+  // Enviar mensaje al backend
+  async function sendMessage(text) {
+    if (!text || isWaiting) return;
+
+    const trimmed = text.trim();
+    if (!trimmed) return;
+
+    isWaiting = true;
+    input.value = '';
+    sendBtn.disabled = true;
+
+    // 1. Mostrar mensaje del usuario
+    appendMessage('user', trimmed);
+    chatHistory.push({ sender: 'user', text: trimmed });
+
+    // 2. Mostrar indicador de escritura
+    const typing = showTyping();
+
+    try {
+      const response = await fetch('/api/chat-portfolio', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: trimmed,
+          history: chatHistory
+        })
+      });
+
+      typing.remove();
+
+      if (!response.ok) {
+        throw new Error(`Error en el servidor (${response.status})`);
+      }
+
+      const data = await response.json();
+      const botReply = data.reply || 'Disculpa, no he podido procesar tu solicitud.';
+
+      chatHistory.push({ sender: 'bot', text: botReply });
+      appendMessage('bot', formatBotMarkdown(botReply), true);
+    } catch (err) {
+      typing.remove();
+      console.error('Error enviando mensaje a DaniBot:', err);
+      appendMessage(
+        'bot',
+        'No he podido conectar con el asistente en este momento. Por favor, escribe directamente a <a href="mailto:cernitoledodaniel@gmail.com">cernitoledodaniel@gmail.com</a>.',
+        true
+      );
+    } finally {
+      isWaiting = false;
+      sendBtn.disabled = !input.value.trim();
+      input.focus();
+    }
+  }
+
+  // Form submit
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    sendMessage(input.value);
+  });
+
+  // Chips sugeridos
+  if (suggestionsEl) {
+    suggestionsEl.addEventListener('click', (e) => {
+      const chip = e.target.closest('.danibot-chip');
+      if (!chip) return;
+      const prompt = chip.getAttribute('data-prompt');
+      if (prompt) {
+        toggleChat(true);
+        sendMessage(prompt);
+      }
+    });
+  }
+
+  // Reiniciar conversación
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      chatHistory = [];
+      messagesEl.innerHTML = `
+        <div class="danibot-msg danibot-msg-bot">
+          <div class="danibot-msg-bubble">
+            ¡Conversación reiniciada! Soy <strong>DaniBot</strong>. ¿En qué te puedo ayudar respecto a los proyectos, habilidades o trayectoria de Daniel?
+          </div>
+          <span class="danibot-msg-time">${getTimeString()}</span>
+        </div>
+      `;
+      input.value = '';
+      sendBtn.disabled = true;
+      input.focus();
+    });
+  }
 }

@@ -488,6 +488,91 @@
     </section>
   </main>
 
+  <!-- Widget Flotante del Asistente Virtual IA (DaniBot) -->
+  <div id="danibotWidget" class="danibot-widget print-hide" aria-label="Asistente virtual de Daniel Cernicharo">
+    <!-- Botón disparador / launcher -->
+    <div class="danibot-launcher-wrap">
+      <div id="danibotTooltip" class="danibot-tooltip">
+        <span>¿Dudas sobre Daniel? ¡Pregúntame!</span>
+        <button id="closeDanibotTooltip" class="danibot-tooltip-close" aria-label="Cerrar sugerencia">×</button>
+      </div>
+      <button id="danibotToggleBtn" class="danibot-toggle-btn" aria-label="Abrir asistente virtual" aria-expanded="false">
+        <span class="danibot-pulse-ring"></span>
+        <span class="danibot-icon-chat">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </span>
+        <span class="danibot-icon-close">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </span>
+      </button>
+    </div>
+
+    <!-- Ventana del chat flotante -->
+    <div id="danibotWindow" class="danibot-window" aria-hidden="true">
+      <div class="danibot-header">
+        <div class="danibot-header-info">
+          <div class="danibot-avatar">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01"></path><path d="M15 10h.01"></path><path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path></svg>
+            <span class="danibot-online-status" title="En línea"></span>
+          </div>
+          <div class="danibot-header-text">
+            <div class="danibot-title-wrap">
+              <h4 class="danibot-title">DaniBot</h4>
+              <span class="danibot-badge">IA</span>
+            </div>
+            <p class="danibot-status-desc">Asistente oficial • Respuestas sobre Daniel</p>
+          </div>
+        </div>
+        <div class="danibot-header-actions">
+          <button id="danibotResetBtn" class="btn-icon btn-sm" title="Reiniciar conversación" aria-label="Reiniciar conversación">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          </button>
+          <button id="danibotCloseBtn" class="btn-icon btn-sm" title="Minimizar" aria-label="Minimizar chat">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Preguntas sugeridas -->
+      <div class="danibot-suggestions" id="danibotSuggestions">
+        <button class="danibot-chip" data-prompt="¿Cuáles son tus proyectos principales?">Proyectos clave</button>
+        <button class="danibot-chip" data-prompt="¿Qué experiencia tienes con Flutter y Unity?">Flutter & Unity</button>
+        <button class="danibot-chip" data-prompt="¿Qué formación técnica tienes?">Formación (DAW/SMR)</button>
+        <button class="danibot-chip" data-prompt="¿Estás buscando trabajo actualmente?">Disponibilidad</button>
+        <button class="danibot-chip" data-prompt="¿Cómo puedo contactar contigo?">Contacto</button>
+      </div>
+
+      <!-- Lista de mensajes -->
+      <div class="danibot-messages" id="danibotMessages" role="log" aria-live="polite">
+        <!-- Mensaje de bienvenida inicial -->
+        <div class="danibot-msg danibot-msg-bot">
+          <div class="danibot-msg-bubble">
+            ¡Hola! Soy <strong>DaniBot</strong>, el asistente virtual del portfolio de Daniel Cernicharo Toledo.<br><br>
+            Puedo resolver cualquier duda sobre sus <strong>proyectos</strong> (como <em>Black Messenger</em> o su minijuego <em>Quick Pythagoras</em>), su <strong>formación técnica</strong> o sus vías de <strong>contacto</strong>.<br><br>
+            ¿En qué puedo ayudarte?
+          </div>
+          <span class="danibot-msg-time">Ahora</span>
+        </div>
+      </div>
+
+      <!-- Barra de entrada -->
+      <form class="danibot-input-form" id="danibotForm">
+        <input 
+          type="text" 
+          id="danibotInput" 
+          class="danibot-input" 
+          placeholder="Pregunta sobre proyectos, stack, CV..." 
+          autocomplete="off" 
+          maxlength="400"
+          aria-label="Mensaje para el asistente"
+        />
+        <button type="submit" id="danibotSendBtn" class="danibot-send-btn" aria-label="Enviar pregunta" disabled>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- Modal interactivo para Demostración Jugable de Black Messenger -->
   <div id="gameModal" class="game-modal-backdrop print-hide" aria-hidden="true">
     <div class="game-modal-container">
