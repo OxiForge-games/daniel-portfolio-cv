@@ -382,6 +382,71 @@ a {
   gap: 0.75rem;
 }
 
+/* Botón directo a DaniBot en la barra de navegación */
+.danibot-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(99, 102, 241, 0.22));
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+}
+
+.danibot-nav-btn:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.28), rgba(99, 102, 241, 0.35));
+  border-color: var(--primary);
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.4);
+}
+
+.danibot-nav-icon {
+  display: flex;
+  align-items: center;
+}
+
+.danibot-nav-text {
+  font-weight: 600;
+}
+
+.danibot-nav-sparkle {
+  background: var(--primary);
+  color: #041019;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.nav-mobile-actions {
+  display: none;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  margin-top: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.btn-hero-danibot {
+  background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px var(--primary-glow);
+  font-weight: 700;
+}
+
+.btn-hero-danibot:hover {
+  box-shadow: 0 6px 22px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
 .btn-icon {
   background: var(--glass);
   border: 1px solid var(--border);
@@ -1622,13 +1687,141 @@ a {
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.65rem 0;
+  }
+
+  .nav-content {
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  /* Ocultar botón de imprimir en el header en móvil (disponible dentro del menú desplegable) */
+  .btn-print-cv {
+    display: none !important;
+  }
+
+  .nav-mobile-actions {
+    display: flex;
+  }
+
+  .hero {
+    padding: 3.2rem 0 2rem 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
   .hero-title {
-    font-size: clamp(2rem, 6vw, 2.4rem);
-    line-height: 1.25;
+    font-size: clamp(1.85rem, 6.8vw, 2.3rem);
+    line-height: 1.2;
+    margin-bottom: 0.45rem;
+    text-align: center;
+  }
+
+  .typewriter-container {
+    min-height: 2rem;
+    margin-bottom: 0.85rem;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding: 0 4px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.2rem;
+  }
+
+  .quick-highlights {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    padding-top: 1.3rem;
+  }
+
+  .quick-divider {
+    display: none;
+  }
+
+  .quick-item {
+    align-items: center;
+    min-width: 85px;
+  }
+
+  .quick-number {
+    font-size: 1.5rem;
+  }
+
+  .quick-label {
+    font-size: 0.72rem;
+    text-align: center;
+    max-width: 100px;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile-card-glass {
+    max-width: 310px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .cursor-spotlight {
@@ -1637,20 +1830,22 @@ a {
 
   .mobile-toggle {
     display: flex;
+    padding: 6px;
   }
 
   .nav-links {
     position: fixed;
-    top: 65px;
+    top: 57px;
     left: 0;
     right: 0;
     background: var(--bg-body);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    gap: 1rem;
     display: none;
     box-shadow: var(--shadow);
+    z-index: 1001;
   }
 
   .nav-links.active {
@@ -1685,59 +1880,48 @@ a {
 
 @media (max-width: 480px) {
   .section {
-    padding: 3.5rem 0;
+    padding: 3rem 0;
+  }
+
+  .danibot-nav-btn {
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .danibot-nav-sparkle {
+    font-size: 0.6rem;
+    padding: 1px 4px;
   }
 
   .hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.1rem);
-  }
-
-  .hero-badges {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.75rem;
-  }
-
-  .hero-cta .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .quick-highlights {
-    flex-wrap: wrap;
-    gap: 0.6rem;
+    font-size: clamp(1.65rem, 7.5vw, 1.95rem);
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-    gap: 0.65rem;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.6rem;
   }
 
   .skill-card {
-    padding: 0.85rem 0.9rem;
+    padding: 0.8rem 0.85rem;
   }
 
   .skill-name {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 
   .about-highlights {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 0.65rem;
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    gap: 0.6rem;
   }
 
   .highlight-number {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .highlight-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .project-footer {
@@ -1749,6 +1933,25 @@ a {
   .project-footer .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo-name {
+    display: inline-block;
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+  .danibot-nav-text {
+    display: none;
+  }
+
+  .danibot-nav-btn {
+    padding: 6px 8px;
   }
 }
 
@@ -2253,13 +2456,16 @@ body.danibot-open {
 /* Responsividad Móvil DaniBot */
 @media (max-width: 640px) {
   .danibot-widget {
-    bottom: 16px;
-    right: 16px;
+    position: fixed;
+    bottom: calc(18px + env(safe-area-inset-bottom, 10px));
+    right: calc(16px + env(safe-area-inset-right, 10px));
+    z-index: 9990;
   }
 
   .danibot-toggle-btn {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 8px 24px -2px rgba(56, 189, 248, 0.55), 0 0 20px rgba(56, 189, 248, 0.35);
   }
 
   .danibot-widget.is-open {
@@ -2267,7 +2473,7 @@ body.danibot-open {
     inset: 0;
     width: 100vw;
     height: 100dvh;
-    z-index: 9999;
+    z-index: 99999;
     bottom: 0;
     right: 0;
   }

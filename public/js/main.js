@@ -824,6 +824,7 @@ function initDanibot() {
       if (tooltipEl) tooltipEl.style.display = 'none';
       if (window.innerWidth <= 640) {
         document.body.classList.add('danibot-open');
+        setTimeout(() => input.focus(), 300);
       } else {
         setTimeout(() => input.focus(), 150);
       }
@@ -839,6 +840,35 @@ function initDanibot() {
   toggleBtn.addEventListener('click', () => toggleChat());
   if (closeBtn) {
     closeBtn.addEventListener('click', () => toggleChat(false));
+  }
+
+  // Accesos directos desde Navbar, Menú Móvil y Hero
+  const navDanibotBtn = document.getElementById('navDanibotBtn');
+  const menuDanibotBtn = document.getElementById('menuDanibotBtn');
+  const heroDanibotBtn = document.getElementById('heroDanibotBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  if (navDanibotBtn) {
+    navDanibotBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (navLinks) navLinks.classList.remove('active');
+      toggleChat(true);
+    });
+  }
+
+  if (menuDanibotBtn) {
+    menuDanibotBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (navLinks) navLinks.classList.remove('active');
+      toggleChat(true);
+    });
+  }
+
+  if (heroDanibotBtn) {
+    heroDanibotBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleChat(true);
+    });
   }
 
   // Escuchar tecla Escape para cerrar

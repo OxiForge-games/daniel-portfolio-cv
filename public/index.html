@@ -61,7 +61,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.5">
 </head>
 <body>
 
@@ -88,14 +88,33 @@
         <a href="#educacion" class="nav-link">Formación</a>
         <a href="#proyectos" class="nav-link">Proyectos</a>
         <a href="#contacto" class="nav-link">Contacto</a>
+        <div class="nav-mobile-actions">
+          <button id="menuDanibotBtn" class="btn btn-primary btn-sm btn-menu-danibot">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>Preguntar a DaniBot (IA)</span>
+          </button>
+          <button onclick="window.print()" class="btn btn-outline btn-sm btn-menu-print">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span>Imprimir Curriculum</span>
+          </button>
+        </div>
       </nav>
 
       <div class="nav-actions">
+        <!-- Acceso directo al asistente DaniBot en el Header -->
+        <button id="navDanibotBtn" class="danibot-nav-btn" aria-label="Abrir asistente DaniBot IA" title="Preguntar a DaniBot (IA)">
+          <span class="danibot-nav-icon">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </span>
+          <span class="danibot-nav-text">DaniBot</span>
+          <span class="danibot-nav-sparkle">IA</span>
+        </button>
+
         <button id="themeToggle" class="btn-icon" aria-label="Cambiar tema">
           <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
-        <button onclick="window.print()" class="btn btn-outline btn-sm print-hide">
+        <button onclick="window.print()" class="btn btn-outline btn-sm print-hide btn-print-cv" title="Imprimir CV">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
           <span>Imprimir CV</span>
         </button>
@@ -140,11 +159,15 @@
           </p>
 
           <div class="hero-cta print-hide">
-            <a href="#contacto" class="btn btn-primary magnetic-btn">
+            <button id="heroDanibotBtn" class="btn btn-primary magnetic-btn btn-hero-danibot">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span>Preguntar a DaniBot (IA)</span>
+            </button>
+            <a href="#contacto" class="btn btn-secondary magnetic-btn">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               <span>Contactar</span>
             </a>
-            <a href="https://www.linkedin.com/in/daniel-cernicharo-toledo-467a8a313/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn">
+            <a href="https://www.linkedin.com/in/daniel-cernicharo-toledo-467a8a313/" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic-btn">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               <span>LinkedIn</span>
             </a>
@@ -614,6 +637,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2.5"></script>
 </body>
 </html>
