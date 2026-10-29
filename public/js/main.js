@@ -822,7 +822,9 @@ function initDanibot() {
       toggleBtn.setAttribute('aria-expanded', 'true');
       windowEl.setAttribute('aria-hidden', 'false');
       if (tooltipEl) tooltipEl.style.display = 'none';
-      if (window.innerWidth > 640) {
+      if (window.innerWidth <= 640) {
+        document.body.classList.add('danibot-open');
+      } else {
         setTimeout(() => input.focus(), 150);
       }
       scrollToBottom();
@@ -830,6 +832,7 @@ function initDanibot() {
       widget.classList.remove('is-open');
       toggleBtn.setAttribute('aria-expanded', 'false');
       windowEl.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('danibot-open');
     }
   }
 
