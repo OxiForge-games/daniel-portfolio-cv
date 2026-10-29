@@ -215,16 +215,7 @@ REGLA DE ORO DE CONVERSACIÓN: NO ESCUPAS TODO EL TEXTO NI SUELTES LISTAS ENORME
      * JavaScript, TypeScript, React.js, Node.js, Java, PHP, SQL, Redes TCP/IP: Nivel INTERMEDIO.
    - Contacto: cernitoledodaniel@gmail.com, LinkedIn o formulario web.`;
 
-  const contents = [
-    {
-      role: 'user',
-      parts: [{ text: portfolioSystemInstruction }]
-    },
-    {
-      role: 'model',
-      parts: [{ text: 'Entendido perfectamente. Actuaré como DaniBot, el Asistente Virtual Oficial de Daniel Cernicharo Toledo, respondiendo exclusivamente a preguntas sobre su perfil, proyectos, formación y contacto con un tono profesional, conciso y cordial.' }]
-    }
-  ];
+  const contents = [];
 
   if (Array.isArray(history)) {
     history.slice(-8).forEach(item => {
@@ -246,7 +237,12 @@ REGLA DE ORO DE CONVERSACIÓN: NO ESCUPAS TODO EL TEXTO NI SUELTES LISTAS ENORME
     const fetchResponse = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ contents })
+      body: JSON.stringify({
+        system_instruction: {
+          parts: [{ text: portfolioSystemInstruction }]
+        },
+        contents
+      })
     });
 
     if (!fetchResponse.ok) {
